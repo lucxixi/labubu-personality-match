@@ -1,7 +1,8 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Sparkles, Heart, Download } from 'lucide-react';
+import { ArrowLeft, Sparkles, Heart, Download, MessageSquare } from 'lucide-react';
 import { characterData } from '../data/characterData';
 import html2canvas from 'html2canvas';
 
@@ -27,26 +28,45 @@ const ResultPage = () => {
     
     setIsGenerating(true);
     try {
+      // 等待图片加载完成
+      const images = reportRef.current.querySelectorAll('img');
+      await Promise.all(Array.from(images).map(img => {
+        if (img.complete) return Promise.resolve();
+        return new Promise(resolve => {
+          img.onload = resolve;
+          img.onerror = resolve;
+        });
+      }));
+
       const canvas = await html2canvas(reportRef.current, {
-        backgroundColor: 'transparent',
+        backgroundColor: '#ffffff',
         scale: 2,
         useCORS: true,
-        allowTaint: true,
-        foreignObjectRendering: true,
+        allowTaint: false,
+        foreignObjectRendering: false,
+        logging: false,
+        width: reportRef.current.scrollWidth,
         height: reportRef.current.scrollHeight,
-        width: reportRef.current.scrollWidth
+        scrollX: 0,
+        scrollY: 0
       });
       
       const link = document.createElement('a');
       link.download = `${character.name}性格测试报告.png`;
-      link.href = canvas.toDataURL('image/png');
+      link.href = canvas.toDataURL('image/png', 1.0);
+      document.body.appendChild(link);
       link.click();
+      document.body.removeChild(link);
     } catch (error) {
       console.error('生成报告失败:', error);
       alert('生成报告失败，请重试');
     } finally {
       setIsGenerating(false);
     }
+  };
+
+  const handleFeedback = () => {
+    window.open('https://github.com/lucxixi/labubu-personality-match/issues', '_blank');
   };
 
   if (!result) {
@@ -84,7 +104,7 @@ const ResultPage = () => {
 
         <div className="max-w-2xl mx-auto">
           {/* 可下载的报告区域 */}
-          <div ref={reportRef} className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 mb-6 shadow-xl">
+          <div ref={reportRef} className="bg-white rounded-3xl p-8 mb-6 shadow-xl">
             {/* 角色展示区域 */}
             <div className={`text-center mb-8 ${showAnimation ? 'animate-scale-in' : 'opacity-0'}`}>
               <div className="relative mb-6">
@@ -92,6 +112,8 @@ const ResultPage = () => {
                   src={character.image}
                   alt={character.name}
                   className="w-48 h-48 mx-auto rounded-3xl shadow-2xl object-cover"
+                  crossOrigin="anonymous"
+                  loading="eager"
                 />
                 <div className="absolute -top-2 -right-2">
                   <div className="bg-yellow-400 rounded-full p-2">
@@ -193,6 +215,16 @@ const ResultPage = () => {
             >
               <Sparkles className="w-5 h-5 mr-2" />
               分享结果
+            </Button>
+
+            <Button
+              onClick={handleFeedback}
+              size="lg"
+              variant="outline"
+              className="bg-transparent border-white text-white hover:bg-white/20 font-bold py-3 px-6 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105"
+            >
+              <MessageSquare className="w-5 h-5 mr-2" />
+              意见反馈
             </Button>
           </div>
         </div>
