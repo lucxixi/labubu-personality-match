@@ -4,7 +4,7 @@ export const characterData: { [key: string]: any } = {
     name: "Labubu",
     subtitle: "活力四射的小精灵",
     emoji: "🌟",
-    image: "https://drive.google.com/uc?export=view&id=1Co5dYV04uY3byNrpYRTKkX4y3QfMOm9C",
+    image: "https://www.hobbydigi.com/media/catalog/product/cache/image/e9c3970ab036de70892d86c6d221abfe/p/o/pop_mart_vinyl_plush_doll_-_the_monster_labubu_be_fancy_now_series_figure_250114034959.jpg",
     bgColor: "bg-gradient-to-br from-pink-400 via-rose-400 to-pink-500",
     quote: "生活就像一场奇妙的冒险，每一天都充满无限可能！我要用最灿烂的笑容迎接每一个挑战~",
     description: "你就像Labubu一样，是一个充满活力和创造力的灵魂。你天生乐观，总是能在平凡中发现不平凡，在困难中看到希望。你的热情如同小太阳，能够温暖身边的每一个人。",
