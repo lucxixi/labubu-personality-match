@@ -1,73 +1,33 @@
-# Welcome to your Lovable project
+# Labubu 家族角色心理测试
+![image](https://github.com/user-attachments/assets/7dba63af-6169-4529-83d0-0e5ffe8fa1bf)
 
-## Project info
+**这是一个互动心理测试页面，主题为「测测你是哪种 Labubu 家族角色？」。测试基于MBTI心理学原理，通过一系列问题匹配用户与Labubu、Zimomo、Mokoko、Spooky或Tycoco等角色的性格特点。**
 
-**URL**: https://lovable.dev/projects/6ce169a0-0ecf-4e86-b0e1-6ff2ca1366ee
+## 开始使用
 
-## How can I edit this code?
+**简易部署链接**：https://labubu-personality-match.lovable.app/
 
-There are several ways of editing your application.
+**可以直接开始测试使用**
 
-**Use Lovable**
+## 功能特点
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6ce169a0-0ecf-4e86-b0e1-6ff2ca1366ee) and start prompting.
+- **完整的测试流程**：从欢迎页到问题页再到结果页的流畅体验
+- **精美的UI设计**：盲盒感、俏皮可爱、偏二次元插画风格
+- **丰富的动画效果**：页面切换、选项交互、结果展示等多处动画
+- **个性化结果分析**：基于用户回答生成深度性格解析
+- **结果报告下载**：可将测试结果保存为图片
+- **响应式设计**：适配不同设备屏幕
 
-Changes made via Lovable will be committed automatically to this repo.
+## 测试原理
 
-**Use your preferred IDE**
+测试基于MBTI（迈尔斯-布里格斯类型指标）的四个核心维度：
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. **E/I（外向/内向）**：能量来源
+2. **S/N（感觉/直觉）**：信息获取方式
+3. **T/F（思考/情感）**：决策方式
+4. **J/P（判断/感知）**：生活方式
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+通过对这些维度的测量，将用户匹配到最符合其性格特点的Labubu家族角色。
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/6ce169a0-0ecf-4e86-b0e1-6ff2ca1366ee) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 备注
+一个粗糙的产品，还需要进行不断的修改
